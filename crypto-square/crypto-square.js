@@ -19,66 +19,74 @@
 
 class Crypto {
   constructor(string) {
-    // let cleanArray = [];
-    // let cleanString = ''
-// This creates a rows key and populates the rows with each string line and turns them into numbers with separate indexes in each array.
-    this.cleanString = string.replace(/[^A-Za-z][^0-9]/gi, "").toLowerCase();
+    this.cleanString = string.replace(/[^A-Za-z0-9]/gi, "").toLowerCase();
     this.clength = Math.ceil(Math.sqrt(this.cleanString.length));
     this.rlength = Math.floor(Math.sqrt(this.cleanString.length));
     console.log(typeof this.cleanString);
     console.log(this.rlength);
+    console.log(this.clength);
     var j = 0;
     var r = [];
     for (var i = 0; i < this.cleanString.length; i) {
       console.log(i);
-
-    r.push(this.cleanString.substr(this.i, this.rlength));
-    i += this.rlength;
-    console.log(r);
+      r.push(this.cleanString.substr(i, this.clength));
+      i += this.clength;
+      console.log(r);
+      console.log(r[0]);
+    }
+    this.cols = new Array(this.clength).fill().map(function() {
+      return [];
+    });
+    console.log(this.cols);
+    // This populates the column arrays with the numbers from the rows
+    for (var k = 0; k < this.rlength; k++) {
+      for (var d = 0; d < this.clength; d++) {
+        this.cols[d].push(this.r[d][k]).join();
+      }
+    }
   }
 }
-}
 
 
-    // for (var i = 0; i < this.cleanString.length; i++) {
-    // this.r = this.cleanString.length / i;
-    // for (var j = 0; j < this.cleanString.length; j++)
-    // this.c = this.cleanString.length / j;
-    // if ((this.c >= this.r) &&
-    // ((this.c - this.r) <= 1) &&
-    // ((this.cleanString.length === (this.c * this.r)) &&
-    // (this.c % 1 === 0) &&
-    // (this.r % 1 === 0)))
-    // console.log((this.c >= this.r));
-    // console.log((this.c - this.r) <= 1);
-    // console.log((this.cleanString.length === (this.c * this.r)));
-    // console.log((this.c % 1 === 0));
-    // console.log((this.r % 1 === 0));
-    // console.log(this.c, "cccc end of loop at if statement");
-    // console.log(this.r, "rrrr end of loop at if statement");
+// for (var i = 0; i < this.cleanString.length; i++) {
+// this.r = this.cleanString.length / i;
+// for (var j = 0; j < this.cleanString.length; j++)
+// this.c = this.cleanString.length / j;
+// if ((this.c >= this.r) &&
+// ((this.c - this.r) <= 1) &&
+// ((this.cleanString.length === (this.c * this.r)) &&
+// (this.c % 1 === 0) &&
+// (this.r % 1 === 0)))
+// console.log((this.c >= this.r));
+// console.log((this.c - this.r) <= 1);
+// console.log((this.cleanString.length === (this.c * this.r)));
+// console.log((this.c % 1 === 0));
+// console.log((this.r % 1 === 0));
+// console.log(this.c, "cccc end of loop at if statement");
+// console.log(this.r, "rrrr end of loop at if statement");
 
-    // .map(function(arr) {
-    //   return arr.map(function(e) {
-    //     return arr;
-    //   });
-    // });
+// .map(function(arr) {
+//   return arr.map(function(e) {
+//     return arr;
+//   });
+// });
 
 
 // var splunk = new Crypto('S#$%^&plunk');
 // console.log(splunk);
-var long = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
-console.log(long);
+var rows = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
+console.log(rows);
 
-    // This makes a columns key and fills it with empty arrays at each index from the length each row
-    // this.cols = new Array(this.rows[0].length).fill().map(function() {
-    // return [];
-  // });
-  // This populates the column arrays with the numbers from the rows
-    // for (var i = 0; i < this.rows.length; i++) {
-      // for (var j = 0; j < this.rows[i].length; j++) {
-        // this.cols[j].push(this.rows[i][j]);
-      // }
-    // }
-  // }
+// This makes a columns key and fills it with empty arrays at each index from the length each row
+// this.cols = new Array(this.rows[0].length).fill().map(function() {
+// return [];
+// });
+// This populates the column arrays with the numbers from the rows
+// for (var i = 0; i < this.rows.length; i++) {
+// for (var j = 0; j < this.rows[i].length; j++) {
+// this.cols[j].push(this.rows[i][j]);
+// }
+// }
+// }
 // }
 //Testing
