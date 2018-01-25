@@ -26,7 +26,11 @@ class Crypto {
     for (var i = 0; i < this.cleanString.length; i++) {
     this.r = this.cleanString.length / i;
     this.c = this.cleanString.length / i;
-    if (this.c >= this.r && (this.c - this.r) <= 1 && this.cleanString.length === this.c * this.r)
+    if ((this.c >= this.r) &&
+    ((this.c - this.r) <= 1) &&
+    ((this.cleanString.length === (this.c * this.r)) &&
+    (this.c % 1 === 0) &&
+    (this.r % 1 === 0)))
     console.log(this.c);
     console.log(this.r);
   }
