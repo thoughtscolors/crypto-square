@@ -22,34 +22,41 @@ class Crypto {
     this.cleanString = string.replace(/[^A-Za-z0-9]/gi, "").toLowerCase();
     this.clength = Math.ceil(Math.sqrt(this.cleanString.length));
     this.rlength = Math.floor(Math.sqrt(this.cleanString.length));
-    console.log(typeof this.cleanString);
-    console.log(this.rlength);
-    console.log(this.clength);
+    // console.log(typeof this.cleanString);
+    // console.log(this.rlength);
+    // console.log(this.clength);
     var j = 0;
     var r = [];
     var c = "";
     for (var i = 0; i < this.cleanString.length; i) {
-      console.log(i);
+      // console.log(i);
       r.push(this.cleanString.substr(i, this.clength));
       i += this.clength;
-      console.log(r);
-      console.log(r[0]);
+      // console.log(r);
+      // console.log(r[0]);
     }
-    this.cols = new Array(this.clength).fill().map(function() {
-      return [];
-    });
-    console.log(this.cols);
-    console.log(r[0]);
-    console.log(this.rlength);
-    console.log(this.clength);
+    this.cols = [];//new Array(this.clength).fill().map(function() {
+      // return [];
+    // });
+    // console.log(this.cols);
+    // console.log(r[0]);
+    // console.log(this.rlength);
+    // console.log(this.clength);
     // This populates the column arrays with the numbers from the rows
     for (var k = 0; k < this.clength; k++) {
       for (var d = 0; d < this.rlength; d++) {
-        this.cols[k].push(r[d][k])//.join("");
-        c += this.cols[k].join("")
-console.log(c);
+        this.cols.push(r[d][k]);   //.join("");
+
+// console.log(c);
       }
+
     }
+    // console.log("column array before turning into a string", this.cols);
+    this.cipherText = this.cols.join("");
+  }
+
+  getCipher() {
+    return this.cipherText;
   }
 }
 
@@ -78,11 +85,11 @@ console.log(c);
 // });
 
 
-// var splunk = new Crypto('S#$%^&plunk');
-// console.log(splunk);
+var splunk = new Crypto('S#$%^&plunk');
+console.log(splunk.getCipher());
 var cipher = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
-console.log(cipher);
-console.log(cipher === "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau", "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau");
+console.log(cipher.getCipher());
+console.log(cipher.getCipher() === "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau", "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau");
 
 // This makes a columns key and fills it with empty arrays at each index from the length each row
 // this.cols = new Array(this.rows[0].length).fill().map(function() {
