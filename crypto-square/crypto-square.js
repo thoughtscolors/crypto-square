@@ -27,6 +27,7 @@ class Crypto {
     console.log(this.clength);
     var j = 0;
     var r = [];
+    var c = "";
     for (var i = 0; i < this.cleanString.length; i) {
       console.log(i);
       r.push(this.cleanString.substr(i, this.clength));
@@ -38,10 +39,15 @@ class Crypto {
       return [];
     });
     console.log(this.cols);
+    console.log(r[0]);
+    console.log(this.rlength);
+    console.log(this.clength);
     // This populates the column arrays with the numbers from the rows
-    for (var k = 0; k < this.rlength; k++) {
-      for (var d = 0; d < this.clength; d++) {
-        this.cols[d].push(this.r[d][k]).join();
+    for (var k = 0; k < this.clength; k++) {
+      for (var d = 0; d < this.rlength; d++) {
+        this.cols[k].push(r[d][k])//.join("");
+        c += this.cols[k].join("")
+console.log(c);
       }
     }
   }
@@ -74,8 +80,9 @@ class Crypto {
 
 // var splunk = new Crypto('S#$%^&plunk');
 // console.log(splunk);
-var rows = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
-console.log(rows);
+var cipher = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
+console.log(cipher);
+console.log(cipher === "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau", "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau");
 
 // This makes a columns key and fills it with empty arrays at each index from the length each row
 // this.cols = new Array(this.rows[0].length).fill().map(function() {
