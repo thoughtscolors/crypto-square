@@ -24,10 +24,9 @@ class Crypto {
 // This creates a rows key and populates the rows with each string line and turns them into numbers with separate indexes in each array.
     this.cleanString = string.replace(/[^A-Za-z]/gi, "").toLowerCase();
     for (var i = 0; i < this.cleanString.length; i++) {
-    this.r = this.cleanString.length % i;
-    this.c = this.cleanString.length % i;
-    if (this.c >= this.r && (this.c - this.r) <= 1)
-    
+    this.r = this.cleanString.length / i;
+    this.c = this.cleanString.length / i;
+    if (this.c >= this.r && (this.c - this.r) <= 1 && this.cleanString.length === this.c * this.r)
     console.log(this.c);
     console.log(this.r);
   }
