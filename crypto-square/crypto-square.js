@@ -22,27 +22,50 @@ class Crypto {
     // let cleanArray = [];
     // let cleanString = ''
 // This creates a rows key and populates the rows with each string line and turns them into numbers with separate indexes in each array.
-    this.cleanString = string.replace(/[^A-Za-z]/gi, "").toLowerCase();
-    for (var i = 0; i < this.cleanString.length; i++) {
-    this.r = this.cleanString.length / i;
-    this.c = this.cleanString.length / i;
-    if ((this.c >= this.r) &&
-    ((this.c - this.r) <= 1) &&
-    ((this.cleanString.length === (this.c * this.r)) &&
-    (this.c % 1 === 0) &&
-    (this.r % 1 === 0)))
-    console.log(this.c);
-    console.log(this.r);
+    this.cleanString = string.replace(/[^A-Za-z][^0-9]/gi, "").toLowerCase();
+    this.clength = Math.ceil(Math.sqrt(this.cleanString.length));
+    this.rlength = Math.floor(Math.sqrt(this.cleanString.length));
+    console.log(typeof this.cleanString);
+    console.log(this.rlength);
+    var j = 0;
+    var r = [];
+    for (var i = 0; i < this.cleanString.length; i) {
+      console.log(i);
+
+    r.push(this.cleanString.substr(this.i, this.rlength));
+    i += this.rlength;
+    console.log(r);
   }
+}
+}
+
+
+    // for (var i = 0; i < this.cleanString.length; i++) {
+    // this.r = this.cleanString.length / i;
+    // for (var j = 0; j < this.cleanString.length; j++)
+    // this.c = this.cleanString.length / j;
+    // if ((this.c >= this.r) &&
+    // ((this.c - this.r) <= 1) &&
+    // ((this.cleanString.length === (this.c * this.r)) &&
+    // (this.c % 1 === 0) &&
+    // (this.r % 1 === 0)))
+    // console.log((this.c >= this.r));
+    // console.log((this.c - this.r) <= 1);
+    // console.log((this.cleanString.length === (this.c * this.r)));
+    // console.log((this.c % 1 === 0));
+    // console.log((this.r % 1 === 0));
+    // console.log(this.c, "cccc end of loop at if statement");
+    // console.log(this.r, "rrrr end of loop at if statement");
+
     // .map(function(arr) {
     //   return arr.map(function(e) {
     //     return arr;
     //   });
     // });
-  }
-}
-var splunk = new Crypto('S#$%^&plunk')
-console.log(splunk);
+
+
+// var splunk = new Crypto('S#$%^&plunk');
+// console.log(splunk);
 var long = new Crypto("If man was meant to stay on the ground, god would have given us roots.");
 console.log(long);
 
